@@ -1,17 +1,9 @@
 import React from "react";
 import logo from "./logo.svg";
-import {
-  Box,
-  IconButton,
-  Paper,
-  Stack,
-  Tooltip,
-  Typography,
-} from "@mui/material";
-import { MdAddLink } from "react-icons/md";
-import { VscHistory } from "react-icons/vsc";
+import { Box, Paper, Typography } from "@mui/material";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./component/Home";
+import Forwarder from "./component/Forwarder";
 
 function App() {
   return (
@@ -33,12 +25,12 @@ function App() {
       <Box
         sx={{
           width: "fit-content",
-          p: 2,
-          border: "1px solid",
+          p: 4,
+          border: "2px solid",
           borderColor: "primary.dark",
           borderRadius: "50%",
           "& img": {
-            height: "90px",
+            height: "65px",
           },
         }}
       >
@@ -49,7 +41,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/u/*" element={"Finding"} />
+          <Route path="/u/*" element={<Forwarder />} />
           <Route path="*" element={"404 Not Found!!"} />
         </Routes>
       </BrowserRouter>
