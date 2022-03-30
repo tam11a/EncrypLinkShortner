@@ -12,15 +12,17 @@ const dbRef = ref(getDatabase(firebase));
 const Forwarder = () => {
   const [data, setData] = React.useState({ url: "" });
   const [error, setError] = React.useState();
+  const [noData, setNoData] = React.useState(false);
   let { search_token } = useParams();
   React.useEffect(() => {
     get(child(dbRef, `app/els/u/${search_token}`))
       .then((snapshot) => {
         if (snapshot.exists()) {
-          console.log(snapshot.val());
+          // console.log(snapshot.val());
           setData(snapshot.val());
         } else {
-          console.log("No data available");
+          // console.log("No data available");
+          setNoData(true);
         }
       })
       .catch((error) => {
@@ -54,7 +56,7 @@ const Forwarder = () => {
         spacing={2}
         alignItems={"center"}
       >
-        {!data.url && (
+        {!data.url && !noData && (
           <img src={loadSvg} alt={"Loading"} style={{ height: "50px" }} />
         )}
         {data.pass && (
@@ -85,6 +87,7 @@ const Forwarder = () => {
             </Button>
           </>
         )}
+        {noData && <Typography variant="h4">Invalid URL</Typography>}
       </Stack>
     </form>
   );
