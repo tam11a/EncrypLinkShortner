@@ -41,7 +41,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/u/*" element={<Forwarder />} />
+          <Route path="/u/:search_token" element={<Forwarder />} />
           <Route path="*" element={"404 Not Found!!"} />
         </Routes>
       </BrowserRouter>

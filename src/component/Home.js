@@ -147,7 +147,15 @@ const GenerateELS = ({ open, handleChange }) => {
             />{" "}
             <Typography>Generate ELS</Typography>
           </Stack>
-          <IconButton color={"secondary"} onClick={handleChange}>
+          <IconButton
+            color={"secondary"}
+            onClick={() => {
+              handleChange();
+              setTimeout(() => {
+                setSubmitted();
+              }, 2000);
+            }}
+          >
             <MdClose />
           </IconButton>
         </Stack>
@@ -239,30 +247,55 @@ const GenerateELS = ({ open, handleChange }) => {
                 <FiCopy />
               </IconButton>
             </CopyToClipboard>
-            <WhatsappShareButton
+
+            <IconButton
+              color="primary"
+              component={WhatsappShareButton}
               url={window.location.origin + "/u/" + submitted.token}
-              // openShareDialogOnClick={false}
+              // style={{}}
+              sx={{
+                fontSize: "1.5rem !important",
+                padding: "0.5rem !important",
+                color: "#7dd7f5 !important",
+                "&:hover": {
+                  background: "#7dd7f508 !important",
+                },
+              }}
             >
-              <IconButton color="primary">
-                <FaWhatsapp />
-              </IconButton>
-            </WhatsappShareButton>
-            <TelegramShareButton
+              <FaWhatsapp />
+            </IconButton>
+
+            <IconButton
+              color="primary"
+              component={TelegramShareButton}
               url={window.location.origin + "/u/" + submitted.token}
-              // openShareDialogOnClick={false}
+              sx={{
+                fontSize: "1.5rem !important",
+                padding: "0.5rem !important",
+                color: "#7dd7f5 !important",
+                "&:hover": {
+                  background: "#7dd7f508 !important",
+                },
+              }}
             >
-              <IconButton color="primary">
-                <FaTelegramPlane />
-              </IconButton>
-            </TelegramShareButton>
-            <EmailShareButton
+              <FaTelegramPlane />
+            </IconButton>
+
+            <IconButton
+              color="primary"
+              component={EmailShareButton}
               url={window.location.origin + "/u/" + submitted.token}
-              // openShareDialogOnClick={false}
+              sx={{
+                fontSize: "1.5rem !important",
+                padding: "0.5rem !important",
+                color: "#7dd7f5 !important",
+                "&:hover": {
+                  background: "#7dd7f508 !important",
+                },
+              }}
             >
-              <IconButton color="primary">
-                <MdOutlineAttachEmail />
-              </IconButton>
-            </EmailShareButton>
+              <MdOutlineAttachEmail />
+            </IconButton>
           </Stack>
         </DialogContent>
       )}
