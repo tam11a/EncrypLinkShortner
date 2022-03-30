@@ -228,7 +228,11 @@ const GenerateELS = ({ open, handleChange }) => {
                 my: 1,
               }}
             >
-              <Typography noWrap width={"100%"} maxWidth={"580px"}>
+              <Typography
+                noWrap
+                width={{ xs: "70vw", sm: "75vw" }}
+                maxWidth={"500px"}
+              >
                 {window.location.origin + "/u/" + submitted.token}
               </Typography>
             </Box>
