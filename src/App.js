@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
 import { Box, Paper, Typography } from "@mui/material";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./component/Home";
 import Forwarder from "./component/Forwarder";
 
@@ -39,11 +39,11 @@ function App() {
       <Box />
 
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/u/:search_token" element={<Forwarder />} />
-          <Route path="*" element={"404 Not Found!!"} />
-        </Routes>
+        <Switch>
+          <Route path="/" component={<Home />} />
+          <Route path="/u/:search_token" component={<Forwarder />} />
+          <Route path="*" component={"404 Not Found!!"} />
+        </Switch>
       </BrowserRouter>
 
       <Typography variant={"caption"}>
