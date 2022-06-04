@@ -40,9 +40,11 @@ function App() {
 
       <BrowserRouter>
         <Switch>
-          <Route path="/" component={<Home />} />
-          <Route path="/u/:search_token" component={<Forwarder />} />
-          <Route path="*" component={"404 Not Found!!"} />
+          <Route path="/" exact component={Home} />
+          <Route path="/u/:search_token" exact component={Forwarder} />
+          <Route path="*">
+            404 Not Found!!
+          </Route>
         </Switch>
       </BrowserRouter>
 
